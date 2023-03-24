@@ -59,6 +59,26 @@ const Header = () => {
             </span>
           </div>
           {/* ========== Search End here ========== */}
+          {/* ========== Signin Start here ========== */}
+          <div className="px-1 py-2 headerHover flex flex-col items-start justify-center">
+            <p className="text-xs text-lightText">Hello, sign in</p>
+            <p className="font-semibold india text-sm">
+              Accounts & Lists
+              <span className="text-gray-400 signin-arrow">
+                <ArrowDropDownIcon />
+              </span>
+            </p>
+          </div>
+          {/* ========== Signin End here ========== */}
+          {/* ========== Oders Start here ========== */}
+          <div className="px-1 py-2 headerHover flex flex-col items-start justify-center orders">
+            <p className="text-xs text-lightText">Returns</p>
+            <p className="font-semibold india text-sm">& Oders</p>
+          </div>
+          {/* ========== Orders End here ========== */}
+          {/* ========== Cart Start here ========== */}
+
+          {/* ========== Cart End here ========== */}
         </div>
       </div>
     </>
