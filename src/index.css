@@ -8,3 +8,10 @@
   margin: 0;
   padding: 0;
 }
+
+@layer components {
+  .headerHover {
+    @apply flex items-center border border-transparent
+    hover:border-white cursor-pointer duration-100;
+  }
+}

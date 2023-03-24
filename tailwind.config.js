@@ -20,7 +20,7 @@ module.exports = {
       colors: {
         amazon_blue: "#131921",
         amazon_light: "#232F3E",
-        amazon_yellow: "#febd69",
+        amazon_yellow: "#f5a911",
         whiteText: "#ffffff",
         lightText: "#ccc",
         quantity_box: "#F0F2F2",
