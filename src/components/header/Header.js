@@ -29,9 +29,15 @@ const Header = () => {
           {/* ========== Deliver End here ========== */}
           {/* ========== Search Start here ========== */}
           <div className="h-10 rounded-md flex flex-grow relative">
-            <span>All</span>
-            <span>
-              <ArrowDropDownIcon />
+            <span
+              className="w-14 bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300
+             text-sm text-gray-600 font-bodyFont flex items-center justify-center 
+             rounded-tl-md rounded-bl-md"
+            >
+              All
+              <span>
+                <ArrowDropDownIcon />
+              </span>
             </span>
             <input
               className=" text-amazon_blue flex-grow outline-none border-none px-2"
@@ -40,7 +46,7 @@ const Header = () => {
             />
             <span
               className="w-12 flex items-center justify-center
-             bg-amazon_yellow hover:bg-[#f2960c] duration-300 text-amazon_blue cursor-pointer
+             bg-[#fcbb17] hover:bg-amazon_yellow duration-300 text-amazon_blue cursor-pointer
               rounded-tr-md rounded-br-md"
             >
               <SearchIcon style={{ fontSize: 30 }} />
