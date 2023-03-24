@@ -6,8 +6,8 @@ module.exports = {
         container: "1440px",
       },
       screens: {
-        sm: "320px",
-        sml: "500px",
+        xsm: "320px",
+        sm: "500px",
         md: "768px",
         lg: "960px",
         lgl: "1024px",
