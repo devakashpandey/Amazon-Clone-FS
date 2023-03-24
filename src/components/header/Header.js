@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
+import AllLists from "../allLists/AllLists";
 
 const Header = () => {
+  const [show, setShow] = useState(false);
+  console.log(show);
   return (
     <>
       <div>
@@ -30,15 +33,18 @@ const Header = () => {
           {/* ========== Search Start here ========== */}
           <div className="h-10 rounded-md flex flex-grow relative">
             <span
-              className="w-14 bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300
+              className="w-14 bg-gray-200 hover:bg-gray-300 hover:text-amazon_blue border-2 cursor-pointer duration-300
              text-sm text-gray-600 font-bodyFont flex items-center justify-center 
              rounded-tl-md rounded-bl-md"
+              onClick={() => setShow(!show)}
             >
               All
               <span>
                 <ArrowDropDownIcon />
               </span>
             </span>
+            {/* ========== Show List Start here ========== */}
+            <AllLists show={show} />
             <input
               className=" text-amazon_blue flex-grow outline-none border-none px-2"
               type="text"
