@@ -5,6 +5,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
 import AllLists from "../allLists/AllLists";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
       <div>
         <div
           className="w-full bg-amazon_blue text-white 
-        px-1 py-1 flex items-center gap-4"
+        px-5 py-1 flex items-center gap-4"
         >
           {/* ========== Image Start here ========== */}
           <div className="px-1 py-1 h-[80%] headerHover">
@@ -77,7 +78,18 @@ const Header = () => {
           </div>
           {/* ========== Orders End here ========== */}
           {/* ========== Cart Start here ========== */}
-
+          <div className="px-1 py-1.5 headerHover flex  items-start justify-center relative ">
+            <FaShoppingCart size={33} />
+            <p className="text-md font-semibold mt-3 ml-1">
+              Cart
+              <span
+                className="absolute text-sm font-semibold top-0 left-7 p-1 h-5 bg-[#f3a847]
+             text-amazon_blue rounded-full flex items-center justify-center "
+              >
+                0
+              </span>
+            </p>
+          </div>
           {/* ========== Cart End here ========== */}
         </div>
       </div>
