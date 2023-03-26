@@ -6,6 +6,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
 import AllLists from "../allLists/AllLists";
 import { FaShoppingCart } from "react-icons/fa";
+import HeaderBottom from "./HeaderBottom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -15,7 +16,7 @@ const Header = () => {
       <div>
         <div
           className="w-full bg-amazon_blue text-white 
-        px-5 py-1 flex items-center gap-4"
+        px-3 py-1 flex items-center gap-4"
         >
           {/* ========== Image Start here ========== */}
           <div className="px-1 py-1 h-[80%] headerHover">
@@ -92,6 +93,8 @@ const Header = () => {
           </div>
           {/* ========== Cart End here ========== */}
         </div>
+        {/* ========== HeaderBottom Start here ========== */}
+        <HeaderBottom />
       </div>
     </>
   );
