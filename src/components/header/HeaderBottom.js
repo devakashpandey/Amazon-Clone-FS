@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Sidebar from "../sidebar/Sidebar";
 
 const HeaderBottom = () => {
+  // const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
       <div className="w-full px-3 h-[36px] bg-amazon_light text-white flex items-center justify-between ">
@@ -11,8 +13,7 @@ const HeaderBottom = () => {
         <div className="left">
           <ul className="px-1 py-1 flex items-center gap-3 text-sm  ">
             <li className="px-1 py-1 headerHover font-medium gap-1">
-              <MenuIcon />
-              All
+              <Sidebar />
             </li>
             <li className="px-1 py-1 headerHover">Today's Deals</li>
             <li className="px-1 py-1 headerHover">Customer Service</li>
@@ -29,8 +30,9 @@ const HeaderBottom = () => {
         </div>
         {/* ========== Header Bottom Items End here ========== */}
 
-        {/* ========== Header Bottom Items Start here ========== */}
-        {/* ========== Header Bottom Items Start here ========== */}
+        {/* ==========  SideBar Start here ========== */}
+
+        {/* ========== SideBar End here ========== */}
       </div>
     </>
   );
