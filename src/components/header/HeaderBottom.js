@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import React from "react";
+
 import Sidebar from "../sidebar/Sidebar";
 
 const HeaderBottom = () => {
-  // const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
       <div className="w-full px-3 h-[36px] bg-amazon_light text-white flex items-center justify-between ">
@@ -28,11 +25,6 @@ const HeaderBottom = () => {
             Shop great deals now
           </p>
         </div>
-        {/* ========== Header Bottom Items End here ========== */}
-
-        {/* ==========  SideBar Start here ========== */}
-
-        {/* ========== SideBar End here ========== */}
       </div>
     </>
   );

@@ -10,7 +10,6 @@ import HeaderBottom from "./HeaderBottom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
-  console.log(show);
   return (
     <>
       <div>

@@ -6,12 +6,10 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import LanguageIcon from "@mui/icons-material/Language";
 
 export default function Sidebar() {
   const [state, setState] = useState({
@@ -160,7 +158,10 @@ export default function Sidebar() {
     <div className="w-full">
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <button onClick={toggleDrawer(anchor, true)}>
+          <button
+            onClick={toggleDrawer(anchor, true)}
+            className="flex justify-center items-center"
+          >
             <MenuIcon />
             All
           </button>
