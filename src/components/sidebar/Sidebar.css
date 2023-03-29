@@ -1,0 +1,16 @@
+.list-text {
+  font-size: 12px !important;
+}
+
+.sideBar-container {
+  width: 24rem;
+}
+
+.box {
+  width: 100% !important;
+}
+
+.parent-lists {
+  position: absolute;
+  top: 0;
+}
