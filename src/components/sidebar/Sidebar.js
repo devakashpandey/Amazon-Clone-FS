@@ -10,6 +10,8 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import LanguageIcon from "@mui/icons-material/Language";
 
 export default function Sidebar() {
   const [state, setState] = useState({
@@ -50,15 +52,19 @@ export default function Sidebar() {
         </div>
 
         {/* ========== Sidebar Signin End here ========== */}
-        <div className="absolute w-full top-14">
+        <div className="absolute w-full top-14 text-sm">
           <List>
-            <h1 className="text-lg font-bold ml-12">
+            <h1 className="text-lg font-bold ml-12 mb-1 mt-1">
               Digital Content & Devices
             </h1>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            {[
+              "Amazon Music",
+              "Kindle E-readers & Books",
+              "Amazon Appstore",
+            ].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <div className="ml-8 mt-1 font-medium flex justify-between w-full">
+                  <div className="ml-8 mt-2 font-medium flex justify-between w-full">
                     <p>{text}</p>
                     <div className=" flex text-gray-400">
                       <ArrowForwardIosIcon style={{ fontSize: 18 }} />
@@ -70,33 +76,77 @@ export default function Sidebar() {
           </List>
           <Divider />
           <List>
-            <h1 className="text-lg font-bold ml-12">Shop By Department</h1>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <p>{text}</p>
-                </ListItemButton>
-              </ListItem>
-            ))}
+            <h1 className="text-lg font-bold ml-12 mt-3">Shop By Department</h1>
+            {["Electronics", "Computers", "Smart Home", "Arts & Crafts"].map(
+              (text, index) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <div className="ml-8 mt-2 font-medium flex justify-between w-full">
+                      <p>{text}</p>
+                      <div className=" flex text-gray-400">
+                        <ArrowForwardIosIcon style={{ fontSize: 18 }} />
+                      </div>
+                    </div>
+                  </ListItemButton>
+                </ListItem>
+              )
+            )}
+            <ListItemButton>
+              <div className="ml-8 font-medium flex">
+                <p>See All</p>
+                <div className="text-gray-500 flex">
+                  <KeyboardArrowDownIcon />
+                </div>
+              </div>
+            </ListItemButton>
           </List>
           <Divider />
           <List>
-            <h1 className="text-lg font-bold ml-12">Programs & Features</h1>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
+            <h1 className="text-lg font-bold ml-12 mt-3">
+              Programs & Features
+            </h1>
+            {[
+              "Gift Cards",
+              "Shop By Interest",
+              "Amazon Live",
+              "International Shopping",
+            ].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <p>{text}</p>
+                  <div className="ml-8 mt-2 font-medium flex justify-between w-full">
+                    <p>{text}</p>
+                    <div className=" flex text-gray-400">
+                      <ArrowForwardIosIcon style={{ fontSize: 18 }} />
+                    </div>
+                  </div>
                 </ListItemButton>
               </ListItem>
             ))}
+
+            <ListItemButton>
+              <div className="ml-8 font-medium flex">
+                <p>See All</p>
+                <div className="text-gray-500 flex">
+                  <KeyboardArrowDownIcon />
+                </div>
+              </div>
+            </ListItemButton>
           </List>
           <Divider />
           <List>
-            <h1 className="text-lg font-bold ml-12">Help & Setings</h1>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
+            <h1 className="text-lg font-bold ml-12 mt-3">Help & Setings</h1>
+            {[
+              "Your Account",
+              "🌍 English",
+              "United States",
+              "Customer Service",
+              "Sign in",
+            ].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <p>{text}</p>
+                  <div className="ml-8 mt-2 font-medium flex justify-between w-full">
+                    <p>{text}</p>
+                  </div>
                 </ListItemButton>
               </ListItem>
             ))}
