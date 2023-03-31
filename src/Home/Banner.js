@@ -55,7 +55,7 @@ const Banner = () => {
     <>
       <div className="w-full">
         <div className="w-full h-full relative">
-          <Slider {...settings} className="slider">
+          <Slider {...settings}>
             <div>
               <img src={banner1} alt="banner" />
             </div>
