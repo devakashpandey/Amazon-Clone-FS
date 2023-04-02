@@ -14,4 +14,9 @@
     @apply flex items-center border border-transparent
     hover:border-white cursor-pointer duration-100;
   }
+
+  .footerLinkHover {
+    @apply tracking-wide hover:text-gray-100 
+    cursor-pointer hover:underline duration-150;
+  }
 }
