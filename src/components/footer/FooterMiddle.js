@@ -1,4 +1,7 @@
 import React from "react";
+import logo from "../../assets/logo.png";
+import LanguageIcon from "@mui/icons-material/Language";
+import flag from "../../assets/flag.png.crdownload";
 
 const FooterMiddle = () => {
   return (
@@ -72,7 +75,23 @@ const FooterMiddle = () => {
             </div>
           </div>
         </div>
-        <div></div>
+        <div className="w-full flex gap-3 items-center justify-center py-6 border-t-[1px] border-gray-500">
+          <div className="mr-12">
+            <img className="w-20 pt-3" src={logo} alt="logo" />
+          </div>
+          <div className="flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm">
+            <LanguageIcon style={{ fontSize: 18 }} />
+            <p className="text-sm">English &nbsp;&nbsp;</p>
+          </div>
+          <div className="flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm">
+            <p className="text-sm">$</p>
+            <p className="text-sm">USD - U.S. Doller</p>
+          </div>
+          <div className="flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm justify-center items-center">
+            <img className="w-5" src={flag} alt="flag" />
+            <p className="text-sm">United States</p>
+          </div>
+        </div>
       </div>
     </>
   );
