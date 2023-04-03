@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
-import AllLists from "../allLists/AllLists";
+import AllLists from "../../components/allLists/AllLists";
 import { FaShoppingCart } from "react-icons/fa";
 import HeaderBottom from "./HeaderBottom";
 
@@ -12,7 +12,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div>
+      <div className="w-full sticky top-0 z-50">
         <div
           className="w-full bg-amazon_blue text-white 
         px-3 py-1 flex items-center gap-4"
@@ -93,8 +93,8 @@ const Header = () => {
           {/* ========== Cart End here ========== */}
         </div>
         {/* ========== HeaderBottom Start here ========== */}
-        <HeaderBottom />
       </div>
+      <HeaderBottom />
     </>
   );
 };
