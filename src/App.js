@@ -1,7 +1,8 @@
 import "./App.css";
 import Header from "./components/header/Header";
-import Banner from "./Home/Banner";
 import Footer from "./components/footer/Footer";
+import Home from "./pages/Home";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -22,7 +23,12 @@ const Layout = () => {
 
 const App = () => {
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Layout />} />)
+    createRoutesFromElements(
+      <Route>
+        <Route path="/" element={<Layout />} />
+        <Route path="/home" element={<Home />} />
+      </Route>
+    )
   );
 
   return (
