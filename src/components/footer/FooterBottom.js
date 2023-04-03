@@ -26,6 +26,20 @@ const FooterBottom = () => {
               );
             })}
           </div>
+          <p className="text-gray-300 text-[13px] mt-4  w-[40%] m-auto text-center">
+            <span className="hover:underline cursor-pointer">
+              Conditions of Use
+            </span>{" "}
+            &nbsp;&nbsp;{" "}
+            <span className="hover:underline cursor-pointer">
+              Privacy Notice
+            </span>
+            &nbsp;&nbsp;{" "}
+            <span className="hover:underline cursor-pointer">
+              Your Ads Privacy Choices
+            </span>{" "}
+            <br />© 1996-2023, Amazon.com, Inc. or its affiliates
+          </p>
         </div>
       </div>
     </>
