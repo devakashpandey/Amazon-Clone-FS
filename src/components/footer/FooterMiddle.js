@@ -14,9 +14,9 @@ const FooterMiddle = () => {
           Back to top
         </div>
 
-        <div className="w-full py-10">
+        <div className="w-full py-12">
           <div className="max-w-5xl mx-auto text-gray-300">
-            <div className="w-full grid grid-cols-4">
+            <div className="w-full grid grid-cols-4 gap-20">
               <div>
                 <h3 className="font-titleFont text-white font-semibold mb-3">
                   Get to Know Us
