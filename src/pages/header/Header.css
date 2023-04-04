@@ -10,8 +10,14 @@
   margin-left: -10px;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 770px) {
   .right {
     display: none;
+  }
+}
+
+@media (min-width: 650px) {
+  .bb-list {
+    display: inline-flex;
   }
 }

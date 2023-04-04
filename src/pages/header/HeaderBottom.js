@@ -12,11 +12,15 @@ const HeaderBottom = () => {
             <li className="px-1 py-1 headerHover font-medium gap-1">
               <Sidebar />
             </li>
-            <li className="px-1 py-1 headerHover">Today's Deals</li>
-            <li className="px-1 py-1 headerHover">Customer Service</li>
-            <li className="px-1 py-1 headerHover">Registry</li>
-            <li className="px-1 py-1 headerHover">Gift Cards</li>
-            <li className="px-1 py-1 headerHover">Sell</li>
+            <li className="px-1 py-1 headerHover hidden bb-list ">
+              Today's Deals
+            </li>
+            <li className="px-1 py-1 headerHover hidden bb-list">
+              Customer Service
+            </li>
+            <li className="px-1 py-1 headerHover hidden bb-list">Registry</li>
+            <li className="px-1 py-1 headerHover hidden bb-list">Gift Cards</li>
+            <li className="px-1 py-1 headerHover hidden bb-list">Sell</li>
           </ul>
         </div>
 
