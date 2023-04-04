@@ -9,7 +9,7 @@ const FooterTop = () => {
             <p className="text-sm py-1">See personalized recommendations</p>
             <button
               className="w-full bg-yellow-400 rounded-md py-2 text-sm font-semibold 
-              hover:bg-yellow-500 cursor-pointer"
+              hover:bg-yellow-300 duration-200 cursor-pointer"
             >
               Sign in
             </button>
