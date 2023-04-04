@@ -15,7 +15,7 @@ const Header = () => {
       <div className="w-full sticky top-0 z-50">
         <div
           className="w-full bg-amazon_blue text-white 
-        px-3 py-1 flex items-center gap-4"
+        px-3 py-1 flex items-center gap-4 "
         >
           {/* ========== Image Start here ========== */}
           <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
@@ -62,7 +62,7 @@ const Header = () => {
           {/* ========== Search End here ========== */}
           {/* ========== Signin Start here ========== */}
           <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
-            <p className="text-sm mdl:text-xs ml-4 mdl:ml-0 font-medium text-white mdl:text-lightText">
+            <p className="text-sm mdl:text-xs ml-2 mdl:ml-0 font-medium text-white mdl:text-lightText">
               Hello, sign in
             </p>
             <p className="font-semibold india text-sm hidden mdl:inline-flex">
@@ -95,8 +95,8 @@ const Header = () => {
           {/* ========== Cart End here ========== */}
         </div>
         {/* ========== HeaderBottom Start here ========== */}
+        <HeaderBottom />
       </div>
-      <HeaderBottom />
     </>
   );
 };

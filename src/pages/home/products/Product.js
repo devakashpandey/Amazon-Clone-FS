@@ -20,8 +20,8 @@ const Product = () => {
   return (
     <>
       <div
-        className="w-full bg-gray-100 absolute h-12 flex
-       items-center justify-center "
+        className="w-full bg-gray-100 absolute h-12 lg:flex
+       items-center justify-center hidden text-xs lgl:text-sm "
       >
         You are on amazon.com. You can also shop on Amazon India for millions of
         products with fast local delivery.&nbsp;
@@ -31,12 +31,12 @@ const Product = () => {
           className="hover:underline text-green-600 hover:text-red-500 "
         >
           Click here to go to amazon.in
-        </a>{" "}
-      </div>{" "}
+        </a>
+      </div>
       <br />
       <br />
       <br />
-      <div className="max-w-screen-3xl max-auto grid grid-cols-4 gap-8 px-6">
+      <div className="max-w-screen-3xl max-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 px-6">
         {myProductData?.map((item) => (
           <div
             className="bg-white h-auto border-[1px] py-8 hover:border-transparent
