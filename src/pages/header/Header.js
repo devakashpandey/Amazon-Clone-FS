@@ -18,7 +18,7 @@ const Header = () => {
         px-3 py-1 flex items-center gap-4"
         >
           {/* ========== Image Start here ========== */}
-          <div className="px-1 py-1 h-[80%] headerHover">
+          <div className="px-1 py-1 h-[80%] headerHover flex items-center justify-center">
             <img className="w-24 mt-2" src={logo} alt="logo" />
           </div>
           {/* ========== Image End here ========== */}
@@ -61,7 +61,7 @@ const Header = () => {
           </div>
           {/* ========== Search End here ========== */}
           {/* ========== Signin Start here ========== */}
-          <div className="px-1 py-2 headerHover flex flex-col items-start justify-center">
+          <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
             <p className="text-xs text-lightText">Hello, sign in</p>
             <p className="font-semibold india text-sm">
               Accounts & Lists

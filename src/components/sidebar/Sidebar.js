@@ -163,7 +163,8 @@ export default function Sidebar() {
             className="flex justify-center items-center"
           >
             <MenuIcon />
-            All
+
+            <span>All</span>
           </button>
           <Drawer
             anchor={anchor}
