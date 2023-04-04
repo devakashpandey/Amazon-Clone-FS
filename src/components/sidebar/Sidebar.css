@@ -14,3 +14,9 @@
   position: absolute;
   top: 0;
 }
+
+@media (max-width: 600px) {
+  .sideBar-container {
+    width: 20rem;
+  }
+}

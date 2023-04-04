@@ -6,10 +6,11 @@ module.exports = {
         container: "1440px",
       },
       screens: {
-        xsm: "320px",
+        xs: "320px",
         sm: "500px",
         md: "768px",
-        lg: "960px",
+        mdl: "850px",
+        lg: "980px",
         lgl: "1024px",
         xl: "1280px",
       },

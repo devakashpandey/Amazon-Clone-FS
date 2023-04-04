@@ -38,7 +38,7 @@ export default function Sidebar() {
       {/* ========== Sidebar Signin Start here ========== */}
       <div className="relative">
         <div
-          className="w-96 h-12 bg-amazon_light flex items-center 
+          className="w-80 md:w-96 h-12 bg-amazon_light flex items-center 
         justify-left fixed z-50"
         >
           <h1

@@ -18,12 +18,12 @@ const Header = () => {
         px-3 py-1 flex items-center gap-4"
         >
           {/* ========== Image Start here ========== */}
-          <div className="px-1 py-1 h-[80%] headerHover flex items-center justify-center">
+          <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
             <img className="w-24 mt-2" src={logo} alt="logo" />
           </div>
           {/* ========== Image End here ========== */}
           {/* ========== Deliver Start here ========== */}
-          <div className="px-2 py-2 headerHover main-location">
+          <div className="px-2 py-2 headerHover -ml-4 hidden mdl:inline-flex">
             <LocationOnOutlinedIcon style={{ marginTop: 6 }} />
             <p className="flex flex-col">
               <span className="text-xs text-lightText">Deliver to</span>
@@ -32,7 +32,7 @@ const Header = () => {
           </div>
           {/* ========== Deliver End here ========== */}
           {/* ========== Search Start here ========== */}
-          <div className="h-10 rounded-md flex flex-grow relative">
+          <div className="h-10 rounded-md hidden mdl:flex flex-grow relative ">
             <span
               className="w-14 bg-gray-200 hover:bg-gray-300 hover:text-amazon_blue border-2 cursor-pointer duration-300
              text-sm text-gray-600 font-bodyFont flex items-center justify-center 
@@ -62,8 +62,10 @@ const Header = () => {
           {/* ========== Search End here ========== */}
           {/* ========== Signin Start here ========== */}
           <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
-            <p className="text-xs text-lightText">Hello, sign in</p>
-            <p className="font-semibold india text-sm">
+            <p className="text-sm mdl:text-xs ml-4 mdl:ml-0 font-medium text-white mdl:text-lightText">
+              Hello, sign in
+            </p>
+            <p className="font-semibold india text-sm hidden mdl:inline-flex">
               Accounts & Lists
               <span className="text-gray-400 signin-arrow">
                 <ArrowDropDownIcon />
@@ -72,13 +74,13 @@ const Header = () => {
           </div>
           {/* ========== Signin End here ========== */}
           {/* ========== Oders Start here ========== */}
-          <div className="px-1 py-2 headerHover flex flex-col items-start justify-center orders">
+          <div className=" hidden px-1 py-2 headerHover lg:flex flex-col items-start justify-center orders">
             <p className="text-xs text-lightText">Returns</p>
             <p className="font-semibold india text-sm">& Oders</p>
           </div>
           {/* ========== Orders End here ========== */}
           {/* ========== Cart Start here ========== */}
-          <div className="px-1 py-1.5 headerHover flex  items-start justify-center relative ">
+          <div className="px-1 py-1.5 ml-5 mdl:ml-0 headerHover flex  items-start justify-center relative ">
             <FaShoppingCart size={33} />
             <p className="text-md font-semibold mt-3 ml-1">
               Cart
