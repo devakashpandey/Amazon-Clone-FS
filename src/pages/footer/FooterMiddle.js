@@ -16,7 +16,7 @@ const FooterMiddle = () => {
 
         <div className="w-full py-12">
           <div className="max-w-5xl mx-auto text-gray-300">
-            <div className="w-full grid grid-cols-4 gap-20">
+            <div className="w-full px-5 lgl:px-0 grid-cols-2 grid lgl:grid-cols-4 gap-20">
               <div>
                 <h3 className="font-titleFont text-white font-semibold mb-3">
                   Get to Know Us
@@ -83,11 +83,11 @@ const FooterMiddle = () => {
             <LanguageIcon style={{ fontSize: 18 }} />
             <p className="text-sm">English &nbsp;&nbsp;</p>
           </div>
-          <div className="flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm">
+          <div className=" hidden md:flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm">
             <p className="text-sm">$</p>
             <p className="text-sm">USD - U.S. Doller</p>
           </div>
-          <div className="flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm justify-center items-center">
+          <div className=" hidden md:flex gap-2 border border-gray-500 cursor-pointer px-3 py-1 rounded-sm justify-center items-center">
             <img className="w-5" src={flag} alt="flag" />
             <p className="text-sm">United States</p>
           </div>

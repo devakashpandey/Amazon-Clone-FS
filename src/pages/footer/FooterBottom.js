@@ -6,7 +6,7 @@ const FooterBottom = () => {
     <>
       <div className="w-full bg-footerBottom py-8">
         <div className="max-w-5xl mx-auto">
-          <div className="w-full grid grid-cols-7 text-gray-400">
+          <div className="w-full grid-cols-3 px-5 lgl:px-0 md:grid-cols-5  grid lgl:grid-cols-7 text-gray-400">
             {footerBottomList.map((item) => {
               return (
                 <div key={item.id} className="group">
