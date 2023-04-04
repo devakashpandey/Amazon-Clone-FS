@@ -11,44 +11,45 @@ const Banner = () => {
   const [dotActive, setDotActive] = useState(0);
   // react slick caraousel setting
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     autoplay: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    beforeChange: (prev, next) => {
-      setDotActive(next);
-    },
-    appendDots: (dots) => (
-      <div
-        style={{
-          position: "absolute",
-          top: "80%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "15rem",
-        }}
-      >
-        <ul
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          {dots}
-        </ul>
-      </div>
-    ),
-    customPaging: (i) => (
-      <div className={i === dotActive ? "pagination" : "pagination2"}>
-        {i + 1}
-      </div>
-    ),
+
+    // beforeChange: (prev, next) => {
+    //   setDotActive(next);
+    // },
+    // appendDots: (dots) => (
+    //   <div
+    //     style={{
+    //       position: "absolute",
+    //       top: "70%",
+    //       left: "50%",
+    //       transform: "translate(-50%, -50%)",
+    //       width: "15rem",
+    //     }}
+    //   >
+    //     <ul
+    //       style={{
+    //         width: "100%",
+    //         display: "flex",
+    //         alignItems: "center",
+    //         alignItems: "center",
+    //         justifyContent: "space-between",
+    //       }}
+    //     >
+    //       {dots}
+    //     </ul>
+    //   </div>
+    // ),
+    // customPaging: (i) => (
+    //   <div className={i === dotActive ? "pagination" : "pagination2"}>
+    //     {i + 1}
+    //   </div>
+    // ),
   };
 
   return (

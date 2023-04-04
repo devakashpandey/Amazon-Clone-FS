@@ -19,6 +19,23 @@ const Product = () => {
 
   return (
     <>
+      <div
+        className="w-full bg-gray-100 absolute h-12 flex
+       items-center justify-center "
+      >
+        You are on amazon.com. You can also shop on Amazon India for millions of
+        products with fast local delivery.&nbsp;
+        <a
+          href="https://www.amazon.in"
+          target="_blank"
+          className="hover:underline text-green-600 hover:text-red-500 "
+        >
+          Click here to go to amazon.in
+        </a>{" "}
+      </div>{" "}
+      <br />
+      <br />
+      <br />
       <div className="max-w-screen-3xl max-auto grid grid-cols-4 gap-8 px-6">
         {myProductData?.map((item) => (
           <div
@@ -27,15 +44,16 @@ const Product = () => {
             key={item.id}
           >
             <div className="flex flex-col gap-4 cursor-pointer">
-              <div className="w-full h-auto flex items-center justify-center relative">
+              <div className="w-full h-auto flex items-center justify-center relative group">
                 <img
                   className="w-52 h-64 object-contain"
                   src={item.image}
                   alt="productImage"
                 />
                 <ul
-                  className="w-full h-32 bg-gray-100 absolute bottom-0 
-                duration-700 flex flex-col items-center justify-center gap-4 font-titleFont px-2 border-1 border-r "
+                  className="w-full h-32 bg-gray-100 absolute bottom-[-150px] duration-700 flex
+                 flex-col items-center justify-center gap-4 font-titleFont px-2 border-1 border-r
+                 group-hover:bottom-0 "
                 >
                   <li className="productli">
                     Compare{" "}
@@ -54,7 +72,7 @@ const Product = () => {
               <span className="text-xs capitalize italic top-2 right-2 absolute text-gray-500">
                 {item.category}
               </span>
-              <div className="px-4">
+              <div className="px-4 z-30 bg-white">
                 <div className="flex items-center justify-between">
                   <h2 className="font-titleFont text-lg">
                     {item.title.substring(0, 20)}
