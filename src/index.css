@@ -19,4 +19,8 @@
     @apply tracking-wide hover:text-gray-100 
     cursor-pointer hover:underline duration-150;
   }
+  .productli {
+    @apply w-full text-gray-600 hover:text-black text-center font-medium border-b-[1px]
+    border-b-gray-400 hover:border-b-gray-700 duration-300;
+  }
 }
