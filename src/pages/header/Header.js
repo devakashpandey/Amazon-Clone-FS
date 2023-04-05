@@ -61,6 +61,7 @@ const Header = () => {
           </div>
           {/* ========== Search End here ========== */}
           {/* ========== Signin Start here ========== */}
+
           <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
             <p className="text-sm mdl:text-xs ml-2 mdl:ml-0 font-medium text-white mdl:text-lightText">
               Hello, sign in
@@ -72,6 +73,7 @@ const Header = () => {
               </span>
             </p>
           </div>
+
           {/* ========== Signin End here ========== */}
           {/* ========== Oders Start here ========== */}
           <div className=" hidden px-1 py-2 headerHover lg:flex flex-col items-start justify-center orders">
