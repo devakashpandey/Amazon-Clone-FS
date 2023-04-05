@@ -8,6 +8,7 @@ import AllLists from "../../components/allLists/AllLists";
 import { FaShoppingCart } from "react-icons/fa";
 import HeaderBottom from "./HeaderBottom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -21,9 +22,11 @@ const Header = () => {
         px-3 py-1 flex items-center gap-4 "
         >
           {/* ========== Image Start here ========== */}
-          <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
-            <img className="w-24 mt-2" src={logo} alt="logo" />
-          </div>
+          <Link to="/">
+            <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
+              <img className="w-24 mt-2" src={logo} alt="logo" />
+            </div>
+          </Link>
           {/* ========== Image End here ========== */}
           {/* ========== Deliver Start here ========== */}
           <div className="px-2 py-2 headerHover -ml-4 hidden mdl:inline-flex">
@@ -85,18 +88,20 @@ const Header = () => {
           </div>
           {/* ========== Orders End here ========== */}
           {/* ========== Cart Start here ========== */}
-          <div className="px-1 py-1.5 ml-5 mdl:ml-0 headerHover flex  items-start justify-center relative ">
-            <FaShoppingCart size={33} />
-            <p className="text-md font-semibold mt-3 ml-1">
-              Cart
-              <span
-                className="absolute w-[22px] text-sm font-semibold top-0 left-7 p-1 h-[22px] bg-[#f3a847]
+          <Link to="/cart">
+            <div className="px-1 py-1.5 ml-5 mdl:ml-0 headerHover flex  items-start justify-center relative ">
+              <FaShoppingCart size={33} />
+              <p className="text-md font-semibold mt-3 ml-1">
+                Cart
+                <span
+                  className="absolute w-[22px] text-sm font-semibold top-0 left-7 p-1 h-[22px] bg-[#f3a847]
              text-amazon_blue rounded-full flex items-center justify-center "
-              >
-                {products.length > 0 ? products.length : 0}
-              </span>
-            </p>
-          </div>
+                >
+                  {products.length > 0 ? products.length : 0}
+                </span>
+              </p>
+            </div>
+          </Link>
           {/* ========== Cart End here ========== */}
         </div>
         {/* ========== HeaderBottom Start here ========== */}

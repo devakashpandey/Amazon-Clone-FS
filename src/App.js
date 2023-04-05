@@ -10,7 +10,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import SignIn from "./pages/signIn/SignIn";
+import Cart from "./pages/cart/Cart";
 
 const Layout = () => {
   return (
@@ -27,7 +27,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
       </Route>
     )
   );
