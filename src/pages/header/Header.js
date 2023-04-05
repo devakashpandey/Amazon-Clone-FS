@@ -7,9 +7,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import AllLists from "../../components/allLists/AllLists";
 import { FaShoppingCart } from "react-icons/fa";
 import HeaderBottom from "./HeaderBottom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const products = useSelector((state) => state.amazonReducer.products);
+
   return (
     <>
       <div className="w-full sticky top-0 z-50">
@@ -87,10 +90,10 @@ const Header = () => {
             <p className="text-md font-semibold mt-3 ml-1">
               Cart
               <span
-                className="absolute text-sm font-semibold top-0 left-7 p-1 h-5 bg-[#f3a847]
+                className="absolute w-[22px] text-sm font-semibold top-0 left-7 p-1 h-[22px] bg-[#f3a847]
              text-amazon_blue rounded-full flex items-center justify-center "
               >
-                0
+                {products.length > 0 ? products.length : 0}
               </span>
             </p>
           </div>

@@ -84,7 +84,7 @@ const Product = () => {
                 </div>
                 <div>
                   <p className="text-sm mt-1 mb-1">
-                    {item.description.substring(0, 100)}...
+                    {item.description.substring(0, 100)}....
                   </p>
                   <div className="text-[#ffa41c] ">
                     <span className="text-black text-sm">4.5 </span>
