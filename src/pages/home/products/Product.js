@@ -4,9 +4,12 @@ import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/AmazonSlice";
 
 const Product = () => {
   const [myProductData, setMyProductData] = useState([]);
+  const dispatch = useDispatch();
 
   const productData = async () => {
     let data = await axios.get("https://fakestoreapi.com/products");
@@ -93,6 +96,19 @@ const Product = () => {
                   </div>
                 </div>
                 <button
+                  onClick={() =>
+                    dispatch(
+                      addToCart({
+                        id: item.id,
+                        title: item.title,
+                        description: item.description,
+                        price: item.price,
+                        category: item.category,
+                        image: item.image,
+                        quantity: 1,
+                      })
+                    )
+                  }
                   className="w-full font-titleFont bg-gradient-to-tr from-yellow-400
                    to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400
                     border-yellow-400 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500
