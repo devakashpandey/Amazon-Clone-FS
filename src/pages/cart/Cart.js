@@ -1,15 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Checkbox from "@mui/material/Checkbox";
 import EmiOption from "../../components/emi accordian/EmiOption";
+import { deleteItem } from "../../redux/AmazonSlice";
 
 const Cart = () => {
   const products = useSelector((state) => state.amazonReducer.products);
+  const [totalPrice, setTotalPrice] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let total = 0;
+    products.map((item) => {
+      total += item.price * item.quantity;
+      return setTotalPrice(total.toFixed(2));
+    });
+  }, [products]);
+
   return (
     <>
       <div className="w-full bg-gray-100 p-4 mt-4">
-        <div className="w-full mx-auto h-auto grid grid-cols-4 gap-8">
+        <div className="w-full mx-auto h-auto grid grid-cols-4 gap-6">
           <div className="w-full h-full bg-white col-span-3">
             <div className="font-titleFont flex items-center justify-between border-b-[1px] py-5 px-5">
               <h2 className="text-3xl font-medium">Shopping Cart</h2>
@@ -61,15 +73,16 @@ const Cart = () => {
                         </p>
                       </div>
                       <button
-                        className="text-[#74a8c2] py-1 px-4 mt-4 bg-gray-100 rounded-md cursor-pointer
-                     hover:bg-gray-200 active:bg-gray-300 duration-300 drop-shadow-md text-sm"
+                        onClick={() => dispatch(deleteItem(item.id))}
+                        className="text-[#5F8FA7] py-1 px-4 mt-4 bg-gray-100 rounded-md cursor-pointer
+                     hover:bg-gray-200 active:bg-gray-300 duration-200 drop-shadow-md text-sm"
                       >
                         Delete
                       </button>{" "}
                       <span className="px-3 text-gray-400">|</span>
                       <button
-                        className="text-[#74a8c2] py-1 px-4 mt-4 bg-gray-100 rounded-md cursor-pointer
-                     hover:bg-gray-200 active:bg-gray-300 duration-300 drop-shadow-md text-sm"
+                        className="text-[#5F8FA7] py-1 px-4 mt-4 bg-gray-100 rounded-md cursor-pointer
+                     hover:bg-gray-200 active:bg-gray-300 duration-200 drop-shadow-md text-sm"
                       >
                         Save for later
                       </button>{" "}
@@ -97,8 +110,8 @@ const Cart = () => {
             </div>
             <div>
               <p className="font-medium text-lg py-2 items-center justify-between font-titleFont tracking-wide">
-                Subtotal (4 items):{" "}
-                <span className="text-2xl font-semibold">$50</span>
+                Subtotal ({products.length > 0 ? products.length : 0} items):{" "}
+                <span className="text-2xl font-semibold">${totalPrice}</span>
               </p>
               <div className="mb-1">
                 <input type="checkbox" />

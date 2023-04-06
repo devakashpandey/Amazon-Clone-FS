@@ -20,8 +20,13 @@ export const amazonSlice = createSlice({
         state.products.push(action.payload);
       }
     },
+    deleteItem: (state, action) => {
+      state.products = state.products.filter(
+        (item) => item.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addToCart } = amazonSlice.actions;
+export const { addToCart, deleteItem } = amazonSlice.actions;
 export default amazonSlice.reducer;

@@ -38,12 +38,12 @@ export default function Sidebar() {
       {/* ========== Sidebar Signin Start here ========== */}
       <div className="relative">
         <div
-          className="w-72 md:w-96 h-12 bg-amazon_light flex items-center 
+          className="w-72 md:w-96 h-14 bg-amazon_light flex items-center 
         justify-left fixed z-50"
         >
           <h1
             className="flex items-center 
-        justify-left ml-10 gap-2  text-white font-bold text-lg"
+        justify-left ml-10 gap-2  text-white font-bold text-[1.3rem]"
           >
             <AccountCircleIcon style={{ fontSize: 30 }} /> Hello, Sign in
           </h1>
