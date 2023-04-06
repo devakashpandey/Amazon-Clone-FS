@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Checkbox from "@mui/material/Checkbox";
 import EmiOption from "../../components/emi accordian/EmiOption";
-import { deleteItem } from "../../redux/AmazonSlice";
+import {
+  decrementQty,
+  deleteItem,
+  incrementQty,
+} from "../../redux/AmazonSlice";
 
 const Cart = () => {
   const products = useSelector((state) => state.amazonReducer.products);
@@ -59,6 +63,7 @@ const Cart = () => {
                       >
                         <p>Qty:</p>
                         <p
+                          onClick={() => dispatch(decrementQty(item.id))}
                           className="cursor-pointer bg-gray-200 px-1.5 rounded-md hover:bg-gray-300
                       duration-200"
                         >
@@ -66,6 +71,7 @@ const Cart = () => {
                         </p>
                         <p>{item.quantity}</p>
                         <p
+                          onClick={() => dispatch(incrementQty(item.id))}
                           className="cursor-pointer bg-gray-200 px-1.5 rounded-md hover:bg-gray-300
                       duration-200 0"
                         >
@@ -89,7 +95,7 @@ const Cart = () => {
                     </div>
                     <div>
                       <p className="text-2xl font-semibold">
-                        ${item.price * item.quantity}
+                        ${item.price * item.quantity.toFixed(2)}
                       </p>
                     </div>
                   </div>
