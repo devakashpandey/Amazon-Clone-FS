@@ -1,13 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import Checkbox from "@mui/material/Checkbox";
+import EmiOption from "../../components/emi accordian/EmiOption";
 
 const Cart = () => {
   const products = useSelector((state) => state.amazonReducer.products);
   return (
     <>
-      <div className="w-full bg-gray-100 p-4">
-        <div className="container mx-auto h-auto grid grid-cols-5 gap-7">
-          <div className="w-full h-full bg-white col-span-4">
+      <div className="w-full bg-gray-100 p-4 mt-4">
+        <div className="w-full mx-auto h-auto grid grid-cols-4 gap-8">
+          <div className="w-full h-full bg-white col-span-3">
             <div className="font-titleFont flex items-center justify-between border-b-[1px] py-5 px-5">
               <h2 className="text-3xl font-medium">Shopping Cart</h2>
               <h4 className="text-gray-500 font-medium text-lg">Price</h4>
@@ -29,10 +32,10 @@ const Cart = () => {
                     </div>
                     <div className="w-3/5">
                       <h2 className="font-medium text-[1.5rem]">
-                        {item.title.substring(0, 45)}...
+                        {item.title}
                       </h2>
-                      <p className="text-md pr-44 mb-1 mt-1 ">
-                        {item.description.substring(0, 150)}....
+                      <p className="text-md pr-30 mb-1 mt-1 ">
+                        {item.description}
                       </p>
                       <p>
                         Price{" "}
@@ -82,7 +85,37 @@ const Cart = () => {
             </div>
             {/* Products item End here */}
           </div>
-          <div className="w-full h-full bg-white"> </div>
+          <div className="w-full h-72 bg-white items-center p-5  ">
+            <div>
+              <p className="flex gap-2 items-start text-sm mt-2 mb-2">
+                <span className="bg-white text-green-600">
+                  <CheckCircleIcon />
+                </span>
+                Part of your order qualifies for FREE Delivery. Select this
+                option at checkout. Details
+              </p>
+            </div>
+            <div>
+              <p className="font-medium text-lg py-2 items-center justify-between font-titleFont tracking-wide">
+                Subtotal (4 items):{" "}
+                <span className="text-2xl font-semibold">$50</span>
+              </p>
+              <div className="mb-1">
+                <input type="checkbox" />
+                &nbsp; This order contains a gift
+              </div>
+            </div>
+            <button
+              className="w-full font-titleFont bg-yellow-300 border
+                    border-yellow-400 hover:bg-yellow-400
+                    duration-200 py-1.5 text-sm rounded-md mt-3"
+            >
+              Proceed to Buy
+            </button>
+            <div className="py-4">
+              <EmiOption />
+            </div>
+          </div>
         </div>
       </div>
     </>
