@@ -8,8 +8,8 @@ const FooterTop = () => {
           <div className="w-64 mx-auto text-center">
             <p className="text-sm py-1">See personalized recommendations</p>
             <button
-              className="w-full bg-yellow-400 rounded-md py-2 text-sm font-semibold 
-              hover:bg-yellow-300 duration-200 cursor-pointer"
+              className="w-full bg-yellow-300 rounded-md py-1.5 text-sm font-medium
+              hover:bg-yellow-400 duration-200 cursor-pointer"
             >
               Sign in
             </button>
