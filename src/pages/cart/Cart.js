@@ -43,7 +43,7 @@ const Cart = () => {
                     <div className="w-full flex items-center justify-between gap-4">
                       <div className="w-1/5">
                         <img
-                          className=" w-full h-44 npm startobject-contain "
+                          className=" w-full h-44 object-contain "
                           src={item.image}
                           alt="productImg"
                         />
