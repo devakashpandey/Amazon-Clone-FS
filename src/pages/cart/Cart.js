@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import Checkbox from "@mui/material/Checkbox";
 import EmiOption from "../../components/emi accordian/EmiOption";
 import {
   decrementQty,
@@ -10,7 +9,7 @@ import {
 } from "../../redux/AmazonSlice";
 
 const Cart = () => {
-  const products = useSelector((state) => state.amazonReducer.products);
+  const products = useSelector((state) => state.amazon.products);
   const [totalPrice, setTotalPrice] = useState("");
   const dispatch = useDispatch();
 
@@ -41,7 +40,7 @@ const Cart = () => {
                   <div className="w-full flex items-center justify-between gap-4">
                     <div className="w-1/5">
                       <img
-                        className=" w-full h-44 object-contain "
+                        className=" w-full h-44 npm startobject-contain "
                         src={item.image}
                         alt="productImg"
                       />
@@ -95,7 +94,7 @@ const Cart = () => {
                     </div>
                     <div>
                       <p className="text-2xl font-semibold">
-                        ${item.price * item.quantity.toFixed(2)}
+                        ${item.price * item.quantity}
                       </p>
                     </div>
                   </div>

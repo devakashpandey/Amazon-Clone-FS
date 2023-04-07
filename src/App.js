@@ -9,6 +9,7 @@ import {
   Outlet,
   Route,
   RouterProvider,
+  ScrollRestoration,
 } from "react-router-dom";
 import Cart from "./pages/cart/Cart";
 
@@ -16,6 +17,7 @@ const Layout = () => {
   return (
     <>
       <Header />
+      <ScrollRestoration />
       <Outlet />
       <Footer />
     </>
