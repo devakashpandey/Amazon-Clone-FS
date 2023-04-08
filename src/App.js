@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./pages/header/Header";
 import Footer from "./pages/footer/Footer";
 import Home from "./pages/home/Home";
+import SignIn from "./pages/signIn/SignIn";
 
 import {
   createBrowserRouter,
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/signin" element={<SignIn />}></Route>
       </Route>
     )
   );

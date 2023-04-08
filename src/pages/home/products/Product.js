@@ -31,6 +31,7 @@ const Product = () => {
         <a
           href="https://www.amazon.in"
           target="_blank"
+          rel="noreferrer"
           className="hover:underline text-green-600 hover:text-red-500 "
         >
           Click here to go to amazon.in

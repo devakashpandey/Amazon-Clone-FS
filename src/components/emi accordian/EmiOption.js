@@ -25,6 +25,7 @@ const EmiOption = () => {
               className="hover:underline text-green-600 hover:text-red-500 "
               href="https://www.amazon.in/gp/help/customer/display.html?pop-up=1&nodeId=201439140"
               target="_blank"
+              rel="noreferrer"
             >
               Learn more
             </a>
