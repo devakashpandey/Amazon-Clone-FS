@@ -72,15 +72,31 @@ const CreateAccount = () => {
         setErrCPassword("Passwords must match");
       }
     }
+
+    if (
+      name &&
+      email &&
+      emailValidation(email) &&
+      password &&
+      password.length >= 6 &&
+      cPassword &&
+      cPassword === password
+    ) {
+      console.log(name, email, password, cPassword);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setCPassword("");
+    }
   };
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full -m-2">
         <div className="w-full bg-white pb-10">
-          <form className="w-[400px] mx-auto flex flex-col items-center mb-8">
-            <img className="w-36" src={logo} alt="logo" />
-            <div className="w-full border border-zinc-300 p-6 rounded-sm">
+          <form className="w-[370px] mx-auto flex flex-col items-center mb-8">
+            <img className="w-32" src={logo} alt="logo" />
+            <div className="w-full border border-zinc-300 p-5 rounded-sm">
               <h2 className="font-titleFont text-3xl  mb-4">Create account</h2>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-col gap-1">
@@ -92,6 +108,7 @@ const CreateAccount = () => {
                     type="text"
                     placeholder="First and last name"
                     onChange={handleName}
+                    value={name}
                   />
                   {errName && (
                     <p
@@ -113,6 +130,7 @@ const CreateAccount = () => {
                      duration-100"
                     type="mail"
                     onChange={handleEmail}
+                    value={email}
                   />
                   {errEmail && (
                     <p
@@ -133,6 +151,7 @@ const CreateAccount = () => {
                     type="password"
                     placeholder="At least 6 characters"
                     onChange={handlePass}
+                    value={password}
                   />
                   {errPassword && (
                     <p
@@ -144,10 +163,16 @@ const CreateAccount = () => {
                     </p>
                   )}
                   <span className="text-xs text-gray-600 font-medium">
-                    <span className="italic text-blue-400 mr-3 font-bold">
-                      i
-                    </span>
-                    Passwords must be at least 6 characters.
+                    {!errPassword ? (
+                      <>
+                        <span className="italic text-blue-400 mr-3 font-bold mt-1">
+                          i
+                        </span>
+                        Passwords must be at least 6 characters.
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -158,6 +183,7 @@ const CreateAccount = () => {
                      duration-100"
                     type="password"
                     onChange={handleCPass}
+                    value={cPassword}
                   />
                   {errCPassword && (
                     <p
@@ -171,7 +197,7 @@ const CreateAccount = () => {
                 </div>
                 <button
                   onClick={handleSignup}
-                  className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
+                  className="w-full py-1.5 text-[13px] font-normal rounded-sm bg-gradient-to-t
                  from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border border-[#a88734]
                  active:border-yellow-800 active:shadow-amazonInput duration-100 tracking-wide"
                 >
@@ -197,7 +223,7 @@ const CreateAccount = () => {
                 </a>
               </p>
               <div className="mt-8">
-                <p className="text-sm font-titleFont tracking-wide">
+                <p className="text-[13px] font-titleFont tracking-wide">
                   Already have an account?{" "}
                   <Link to="/signin">
                     <span className="cursor-pointer hover:underline text-blue-700 hover:text-red-500">
@@ -208,7 +234,7 @@ const CreateAccount = () => {
                     </span>
                   </Link>
                 </p>
-                <p className="text-sm font-titleFont tracking-wide">
+                <p className="text-[13px] font-titleFont tracking-wide">
                   Buying for work?{" "}
                   <span className=" cursor-pointer hover:underline text-blue-700 hover:text-red-500">
                     Create a free business account
@@ -224,7 +250,7 @@ const CreateAccount = () => {
             className="w-full bg-gradient-to-t from-white via-white to-zinc-100
           flex  flex-col justify-center items-center gap-4 mt-2"
           >
-            <div className=" flex items-center gap-6 mt-8">
+            <div className=" flex items-center gap-6 mt-6">
               <a
                 href="#"
                 rel="noreferrer"

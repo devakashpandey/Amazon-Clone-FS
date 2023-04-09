@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/amazondark.png";
 import { Link } from "react-router-dom";
 
@@ -6,13 +6,25 @@ const SignIn = () => {
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // error messages handling
+
+  const [errEmail, setErrEmail] = useState("");
+  const [errPassword, setErrPassword] = useState("");
+
+  const handleSignin = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <div className="w-full">
+      <div className="w-full -m-2 ">
         <div className="w-full bg-white pb-10">
-          <form className="w-[380px] mx-auto flex flex-col items-center">
-            <img className="w-36" src={logo} alt="logo" />
-            <div className="w-full border border-zinc-300 p-6 rounded-sm">
+          <form className="w-[370px] mx-auto flex flex-col items-center">
+            <img className="w-32" src={logo} alt="logo" />
+            <div className="w-full border border-zinc-300 p-5 rounded-sm">
               <h2 className="font-titleFont text-3xl  mb-4">Sign in</h2>
               <div className="flex flex-col gap-3  font-titleFont tracking-wide">
                 <div className="flex flex-col gap-1">
@@ -24,7 +36,18 @@ const SignIn = () => {
                      outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                      duration-100"
                     type="email"
+                    onChange={handleEmail}
+                    value={email}
                   />
+                  {errEmail && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errEmail}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-sm font-semibold">Password</p>
@@ -33,11 +56,22 @@ const SignIn = () => {
                      outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                      duration-100"
                     type="password"
+                    onChange={handlePassword}
+                    value={password}
                   />
+                  {errPassword && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errPassword}
+                    </p>
+                  )}
                 </div>
                 <button
-                  onClick={(e) => e.preventDefault()}
-                  className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
+                  onClick={handleSignin}
+                  className="w-full py-1.5 text-[13px] tracking-wide font-normal rounded-sm bg-gradient-to-t
                  from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border border-[#a88734]
                  active:border-yellow-800 active:shadow-amazonInput duration-100"
                 >
@@ -63,7 +97,7 @@ const SignIn = () => {
                 </a>
                 .
               </p>
-              <p className="text-sm font-titleFont pt-5">
+              <p className="text-[13px] font-titleFont pt-5">
                 <a
                   className="hover:underline text-blue-600 hover:text-red-500 "
                   href="#"
@@ -73,14 +107,14 @@ const SignIn = () => {
                 </a>
               </p>
             </div>
-            <p className="w-full text-[13px] text-gray-500 mt-4 flex items-center">
+            <p className="w-full text-xs text-gray-500 mt-4 flex items-center">
               <span className="w-1/3 h-[1px] bg-zinc-300 inline-flex"></span>
               <span className="w-1/3 text-center">New to Amazon?</span>
               <span className="w-1/3 h-[1px] bg-zinc-300 inline-flex"></span>
             </p>
             <Link className="w-full" to="/signup">
               <button
-                className="w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t
+                className="w-full py-1.5 mt-4 text-[13px] font-normal rounded-sm bg-gradient-to-t
               from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400
               active:border-yellow-800 active:shadow-amazonInput duration-100 mb-5"
               >
