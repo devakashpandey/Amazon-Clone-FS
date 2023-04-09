@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/amazondark.png";
 import { Link } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -6,6 +6,74 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 const CreateAccount = () => {
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cPassword, setCPassword] = useState("");
+
+  // error message handling
+  const [errName, setErrName] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errPassword, setErrPassword] = useState("");
+  const [errCPassword, setErrCPassword] = useState("");
+
+  // handle all inputs here
+  const handleName = (e) => {
+    setName(e.target.value);
+    setErrName("");
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setErrEmail("");
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+    setErrPassword("");
+  };
+  const handleCPass = (e) => {
+    setCPassword(e.target.value);
+    setErrCPassword("");
+  };
+
+  // email validation
+  const emailValidation = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    if (!name) {
+      setErrName("Enter your name");
+    }
+    if (!email) {
+      setErrEmail("Enter your email or mobile phone number");
+    } else {
+      if (!emailValidation(email)) {
+        setErrEmail(
+          "Wrong or Invalid email address or mobile phone number. Please correct and try again."
+        );
+      }
+    }
+    if (!password) {
+      setErrPassword("Enter your password");
+    } else {
+      if (password.length < 6) {
+        setErrPassword("Minimum 6 characters required");
+      }
+    }
+    if (!cPassword) {
+      setErrCPassword("Type your password again");
+    } else {
+      if (cPassword !== password) {
+        setErrCPassword("Passwords must match");
+      }
+    }
+  };
+
   return (
     <>
       <div className="w-full">
@@ -14,7 +82,7 @@ const CreateAccount = () => {
             <img className="w-36" src={logo} alt="logo" />
             <div className="w-full border border-zinc-300 p-6 rounded-sm">
               <h2 className="font-titleFont text-3xl  mb-4">Create account</h2>
-              <div className="flex flex-col gap-3 font-titleFont tracking-wide">
+              <div className="flex flex-col gap-3">
                 <div className="flex flex-col gap-1">
                   <p className="text-sm font-semibold">Your name</p>
                   <input
@@ -23,7 +91,17 @@ const CreateAccount = () => {
                      duration-100"
                     type="text"
                     placeholder="First and last name"
+                    onChange={handleName}
                   />
+                  {errName && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errName}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-sm font-semibold">
@@ -34,7 +112,17 @@ const CreateAccount = () => {
                      outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                      duration-100"
                     type="mail"
+                    onChange={handleEmail}
                   />
+                  {errEmail && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errEmail}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1 mt-3">
                   <p className="text-sm font-semibold ">Password</p>
@@ -44,8 +132,21 @@ const CreateAccount = () => {
                      duration-100"
                     type="password"
                     placeholder="At least 6 characters"
+                    onChange={handlePass}
                   />
-                  <span className="text-xs text-gray-600">
+                  {errPassword && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errPassword}
+                    </p>
+                  )}
+                  <span className="text-xs text-gray-600 font-medium">
+                    <span className="italic text-blue-400 mr-3 font-bold">
+                      i
+                    </span>
                     Passwords must be at least 6 characters.
                   </span>
                 </div>
@@ -56,10 +157,20 @@ const CreateAccount = () => {
                      outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                      duration-100"
                     type="password"
+                    onChange={handleCPass}
                   />
+                  {errCPassword && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {errCPassword}
+                    </p>
+                  )}
                 </div>
                 <button
-                  onClick={(e) => e.preventDefault()}
+                  onClick={handleSignup}
                   className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
                  from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border border-[#a88734]
                  active:border-yellow-800 active:shadow-amazonInput duration-100 tracking-wide"
