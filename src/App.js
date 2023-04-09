@@ -3,6 +3,7 @@ import Header from "./pages/header/Header";
 import Footer from "./pages/footer/Footer";
 import Home from "./pages/home/Home";
 import SignIn from "./pages/signIn/SignIn";
+import CreateAccount from "./pages/signUp/CreateAccount";
 
 import {
   createBrowserRouter,
@@ -28,11 +29,16 @@ const Layout = () => {
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/signin" element={<SignIn />}></Route>
-      </Route>
+      <>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/cart" element={<Cart />}></Route>
+        </Route>
+        <Route>
+          <Route path="/signin" element={<SignIn />}></Route>
+          <Route path="/signup" element={<CreateAccount />}></Route>
+        </Route>
+      </>
     )
   );
 
