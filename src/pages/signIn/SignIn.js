@@ -10,12 +10,34 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
 
   // error messages handling
-
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
 
+  // handle inputs here
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setErrEmail("");
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+    setErrPassword("");
+  };
+
   const handleSignin = (e) => {
     e.preventDefault();
+
+    if (!email) {
+      setErrEmail("Enter your email");
+    }
+    if (!password) {
+      setErrPassword("Enter your password");
+    }
+
+    if (email && password) {
+      console.log(email, password);
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
@@ -56,7 +78,7 @@ const SignIn = () => {
                      outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                      duration-100"
                     type="password"
-                    onChange={handlePassword}
+                    onChange={handlePass}
                     value={password}
                   />
                   {errPassword && (

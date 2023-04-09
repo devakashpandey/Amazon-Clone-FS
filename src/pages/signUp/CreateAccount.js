@@ -43,9 +43,11 @@ const CreateAccount = () => {
       .match(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
   };
 
+  // handle signup button
   const handleSignup = (e) => {
     e.preventDefault();
 
+    // error handling conditions
     if (!name) {
       setErrName("Enter your name");
     }
