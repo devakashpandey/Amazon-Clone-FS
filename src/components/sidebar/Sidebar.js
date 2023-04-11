@@ -10,11 +10,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useSelector } from "react-redux";
 
 export default function Sidebar() {
   const [state, setState] = useState({
     left: false,
   });
+  const userInfo = useSelector((state) => state.amazon.userInfo);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -43,9 +45,31 @@ export default function Sidebar() {
         >
           <h1
             className="flex items-center 
-        justify-left ml-10 gap-2  text-white font-bold text-[1.3rem]"
+        justify-left ml-10 gap-2  text-white font-bold text-[1.2rem]"
           >
-            <AccountCircleIcon style={{ fontSize: 30 }} /> Hello, Sign in
+            {userInfo ? (
+              <>
+                <img
+                  className="w-9 h-9 rounded-full"
+                  src={userInfo.image}
+                  alt="userLogo"
+                />
+              </>
+            ) : (
+              <AccountCircleIcon style={{ fontSize: 30 }} />
+            )}{" "}
+            Hello,
+            {userInfo ? (
+              <>
+                <span className="capitalize text-[20px]">
+                  {userInfo.userName}
+                </span>
+              </>
+            ) : (
+              <>
+                <span>Sign in</span>
+              </>
+            )}
           </h1>
         </div>
 

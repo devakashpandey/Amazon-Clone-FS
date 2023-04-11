@@ -105,7 +105,8 @@ const CreateAccount = () => {
         .then((userData) => {
           updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: "https://cdn-icons-png.flaticon.com/512/64/64572.png",
+            photoURL:
+              "https://2.bp.blogspot.com/-BVgTOe82aaI/VZln4Ny-LPI/AAAAAAAAA6Y/hKchnruxKtg/s1600/2000px-User_icon_2.svg.png",
           });
           const user = userData.user;
           setLoading(false);

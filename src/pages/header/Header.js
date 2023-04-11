@@ -7,14 +7,30 @@ import SearchIcon from "@mui/icons-material/Search";
 import AllLists from "../../components/allLists/AllLists";
 import { FaShoppingCart } from "react-icons/fa";
 import HeaderBottom from "./HeaderBottom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { getAuth, signOut } from "firebase/auth";
+import { userSignOut } from "../../redux/AmazonSlice";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const products = useSelector((state) => state.amazon.products);
   const userInfo = useSelector((state) => state.amazon.userInfo);
 
+  const auth = getAuth();
+  const dispatch = useDispatch();
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign out Successfull");
+        dispatch(userSignOut());
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="w-full sticky top-0 z-50">
@@ -70,7 +86,7 @@ const Header = () => {
           {/* ========== Signin Start here ========== */}
           <Link to="/signin">
             <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
-              <p>
+              <p className="text-sm">
                 Hello,{" "}
                 {userInfo ? (
                   <span className="capitalize">{userInfo.userName}</span>
@@ -113,6 +129,18 @@ const Header = () => {
             </div>
           </Link>
           {/* ========== Cart End here ========== */}
+
+          {userInfo && (
+            <div
+              onClick={handleSignOut}
+              className=" flex flex-col justify-center items-center px-2 py-2 headerHover relative"
+            >
+              <LogoutIcon />
+              <p className="text-xs hidden mdl:inline-flex font-medium">
+                Log Out
+              </p>
+            </div>
+          )}
         </div>
         {/* ========== HeaderBottom Start here ========== */}
         <HeaderBottom />
