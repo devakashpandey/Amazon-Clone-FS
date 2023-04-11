@@ -29,13 +29,15 @@ const SignIn = () => {
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
+    setUserEmailErr("");
   };
   const handlePass = (e) => {
     setPassword(e.target.value);
     setErrPassword("");
+    setUserPasssErr("");
   };
 
-  // email validation
+  //email validation
   const emailValidation = (email) => {
     return String(email)
       .toLowerCase()
@@ -59,26 +61,34 @@ const SignIn = () => {
       setErrPassword("Enter your password");
     }
 
-    if (email && password) {
+    if (email && password && emailValidation(email)) {
       setLoading(true);
       signInWithEmailAndPassword(auth, email, password)
         .then((userData) => {
           const user = userData.user;
           console.log(user);
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          if (errorMessage.includes("auth/invalid-email")) {
-            setUserEmailErr("Invalid email");
-          }
-          if (errorMessage.includes("auth/wrong-password")) {
-            setUserPasssErr("Wrong password! try again");
-          }
           setLoading(false);
           setSuccessMsg("Logged in Successfully!");
           setTimeout(() => {
             navigate("/");
           }, 2000);
+        })
+        .catch((error) => {
+          setLoading(false);
+          const errorMessage = error.message;
+          const errorCode = error.code;
+          console.log(errorCode, errorMessage);
+          if (errorCode.includes("auth/user-not-found")) {
+            setUserEmailErr("Invalid email");
+            setEmail(email);
+            setPassword(password);
+          }
+          if (errorCode.includes("auth/wrong-password")) {
+            setLoading(false);
+            setUserPasssErr("Wrong password! try again");
+            setEmail(email);
+            setPassword(password);
+          }
         });
       setEmail("");
       setPassword("");
