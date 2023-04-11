@@ -74,7 +74,7 @@ export default function Sidebar() {
         </div>
 
         {/* ========== Sidebar Signin End here ========== */}
-        <div className="absolute w-full top-14 text-sm">
+        <div className="absolute w-full top-16 text-sm">
           <List>
             <h1 className="text-lg font-bold ml-12 mb-1 mt-1">
               Digital Content & Devices
