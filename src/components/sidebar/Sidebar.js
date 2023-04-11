@@ -10,13 +10,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import { userSignOut } from "../../redux/AmazonSlice";
 
 export default function Sidebar() {
   const [state, setState] = useState({
     left: false,
   });
   const userInfo = useSelector((state) => state.amazon.userInfo);
+  const dispatch = useDispatch();
+  const auth = getAuth();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -27,6 +32,17 @@ export default function Sidebar() {
     }
 
     setState({ ...state, [anchor]: open });
+  };
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign out Successfull");
+        dispatch(userSignOut());
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const list = (anchor) => (
@@ -162,7 +178,6 @@ export default function Sidebar() {
               "🌍 English",
               "United States",
               "Customer Service",
-              "Sign in",
             ].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
@@ -172,6 +187,21 @@ export default function Sidebar() {
                 </ListItemButton>
               </ListItem>
             ))}
+            {userInfo ? (
+              <ListItemButton onClick={handleSignOut}>
+                <div className="ml-8 font-medium flex ">
+                  <p>Log out</p>
+                </div>
+              </ListItemButton>
+            ) : (
+              <Link to="/signin">
+                <ListItemButton>
+                  <div className="ml-8 font-medium flex ">
+                    <p>Sign in</p>
+                  </div>
+                </ListItemButton>
+              </Link>
+            )}
           </List>
         </div>
       </div>
