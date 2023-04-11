@@ -70,9 +70,17 @@ const Header = () => {
           {/* ========== Signin Start here ========== */}
           <Link to="/signin">
             <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
-              <p className="text-sm mdl:text-xs ml-2 mdl:ml-0 font-medium text-white mdl:text-lightText">
-                Hello, sign in
+              <p>
+                Hello,{" "}
+                {userInfo ? (
+                  <span className="capitalize">{userInfo.userName}</span>
+                ) : (
+                  <span className="text-sm mdl:text-xs ml-2 mdl:ml-0 font-medium text-white mdl:text-lightText">
+                    sign in
+                  </span>
+                )}
               </p>
+
               <p className="font-semibold india text-sm hidden mdl:inline-flex">
                 Accounts & Lists
                 <span className="text-gray-400 signin-arrow">
