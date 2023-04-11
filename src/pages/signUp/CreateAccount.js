@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/amazondark.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import {
   getAuth,
@@ -8,9 +8,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+import { RotatingLines } from "react-loader-spinner";
+import { motion } from "framer-motion";
+
 const CreateAccount = () => {
   const auth = getAuth();
-
+  const navigate = useNavigate();
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
 
@@ -25,6 +28,9 @@ const CreateAccount = () => {
   const [errPassword, setErrPassword] = useState("");
   const [errCPassword, setErrCPassword] = useState("");
   const [firebaseErr, setFirebaseErr] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
 
   // handle all inputs here
   const handleName = (e) => {
@@ -93,7 +99,7 @@ const CreateAccount = () => {
       cPassword &&
       cPassword === password
     ) {
-      console.log(name, email, password, cPassword);
+      setLoading(true);
       createUserWithEmailAndPassword(auth, email, password)
         .then((userData) => {
           updateProfile(auth.currentUser, {
@@ -102,10 +108,16 @@ const CreateAccount = () => {
           });
           const user = userData.user;
           console.log(user);
+          setLoading(false);
+          setSuccessMsg("Accout Created Successfully!");
+          setTimeout(() => {
+            navigate("/signin");
+          }, 4000);
         })
         .catch((error) => {
           const errorMessage = error.message;
           if (errorMessage.includes("auth/email-already-in-use")) {
+            setLoading(false);
             setFirebaseErr("Email already in use, Try another one");
             setEmail(email);
             setName(name);
@@ -242,6 +254,30 @@ const CreateAccount = () => {
                 >
                   Continue
                 </button>
+                {loading && (
+                  <div className="flex justify-center">
+                    <RotatingLines
+                      strokeColor="#febd69"
+                      strokeWidth="5"
+                      animationDuration="0.75"
+                      width="50"
+                      visible={true}
+                    />
+                  </div>
+                )}
+                {successMsg && (
+                  <div>
+                    <motion.p
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.1, duration: 0.5 }}
+                      className="text-base font-titleFont font-medium text-green-500 border-[1px]
+                      border-green-500 px-2 text-center"
+                    >
+                      {successMsg}
+                    </motion.p>
+                  </div>
+                )}
               </div>
               <p className="text-xs mt-6 w-full tracking-wide">
                 By creating an account, you agree to Amazon's{" "}
