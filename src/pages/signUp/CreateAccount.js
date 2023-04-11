@@ -29,6 +29,7 @@ const CreateAccount = () => {
   const [errCPassword, setErrCPassword] = useState("");
   const [firebaseErr, setFirebaseErr] = useState("");
 
+  //firebase error handling
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -107,12 +108,11 @@ const CreateAccount = () => {
             photoURL: "https://cdn-icons-png.flaticon.com/512/64/64572.png",
           });
           const user = userData.user;
-          console.log(user);
           setLoading(false);
           setSuccessMsg("Accout Created Successfully!");
           setTimeout(() => {
             navigate("/signin");
-          }, 4000);
+          }, 2500);
         })
         .catch((error) => {
           const errorMessage = error.message;

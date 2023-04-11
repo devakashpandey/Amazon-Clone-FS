@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import logo from "../../assets/amazondark.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { RotatingLines } from "react-loader-spinner";
+import { motion } from "framer-motion";
 
 const SignIn = () => {
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
+
+  const auth = getAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +18,12 @@ const SignIn = () => {
   // error messages handling
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
+
+  // firebase error handling
+  const [userEmailErr, setUserEmailErr] = useState("");
+  const [userPassErr, setUserPasssErr] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
 
   // handle inputs here
   const handleEmail = (e) => {
@@ -34,7 +46,26 @@ const SignIn = () => {
     }
 
     if (email && password) {
-      console.log(email, password);
+      setLoading(true);
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userData) => {
+          const user = userData.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          if (errorMessage.includes("auth/invalid-email")) {
+            setUserEmailErr("Invalid email");
+          }
+          if (errorMessage.includes("auth/wrong-password")) {
+            setUserPasssErr("Wrong password! try again");
+          }
+          setLoading(false);
+          setSuccessMsg("Logged in Successfully!");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        });
       setEmail("");
       setPassword("");
     }
@@ -70,6 +101,15 @@ const SignIn = () => {
                       {errEmail}
                     </p>
                   )}
+                  {userEmailErr && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {userEmailErr}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-sm font-semibold">Password</p>
@@ -90,6 +130,15 @@ const SignIn = () => {
                       {errPassword}
                     </p>
                   )}
+                  {userPassErr && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {userPassErr}
+                    </p>
+                  )}
                 </div>
                 <button
                   onClick={handleSignin}
@@ -99,6 +148,17 @@ const SignIn = () => {
                 >
                   Continue
                 </button>
+                {loading && (
+                  <div className="flex justify-center">
+                    <RotatingLines
+                      strokeColor="#febd69"
+                      strokeWidth="5"
+                      animationDuration="0.75"
+                      width="50"
+                      visible={true}
+                    />
+                  </div>
+                )}
               </div>
               <p className="text-xs tracking-wide  mt-4 w-full ">
                 By continuing, you agree to Amazon's{" "}
