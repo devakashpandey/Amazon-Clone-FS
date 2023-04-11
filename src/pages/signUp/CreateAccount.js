@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import logo from "../../assets/amazondark.png";
 import { Link } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 const CreateAccount = () => {
+  const auth = getAuth();
+
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
 
@@ -17,6 +24,7 @@ const CreateAccount = () => {
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
   const [errCPassword, setErrCPassword] = useState("");
+  const [firebaseErr, setFirebaseErr] = useState("");
 
   // handle all inputs here
   const handleName = (e) => {
@@ -26,6 +34,7 @@ const CreateAccount = () => {
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
+    setFirebaseErr("");
   };
   const handlePass = (e) => {
     setPassword(e.target.value);
@@ -85,6 +94,25 @@ const CreateAccount = () => {
       cPassword === password
     ) {
       console.log(name, email, password, cPassword);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userData) => {
+          updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: "https://cdn-icons-png.flaticon.com/512/64/64572.png",
+          });
+          const user = userData.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          if (errorMessage.includes("auth/email-already-in-use")) {
+            setFirebaseErr("Email already in use, Try another one");
+            setEmail(email);
+            setName(name);
+            setPassword(password);
+            setCPassword(cPassword);
+          }
+        });
       setName("");
       setEmail("");
       setPassword("");
@@ -141,6 +169,15 @@ const CreateAccount = () => {
                     >
                       <span className="italic font-bold text-base mr-2">!</span>{" "}
                       {errEmail}
+                    </p>
+                  )}
+                  {firebaseErr && (
+                    <p
+                      className="text-red-600 text-[13px] font-medium tracking-wide flex 
+                    items-center mt-1"
+                    >
+                      <span className="italic font-bold text-base mr-2">!</span>{" "}
+                      {firebaseErr}
                     </p>
                   )}
                 </div>

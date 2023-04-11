@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import LanguageIcon from "@mui/icons-material/Language";
-import flag from "../../assets/flag.png.crdownload";
+import flag from "../../assets/flag.png";
 
 const FooterMiddle = () => {
   return (
