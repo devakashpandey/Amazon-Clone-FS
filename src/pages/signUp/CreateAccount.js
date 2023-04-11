@@ -138,7 +138,9 @@ const CreateAccount = () => {
       <div className="w-full -m-2">
         <div className="w-full bg-white pb-10">
           <form className="w-[370px] mx-auto flex flex-col items-center mb-8">
-            <img className="w-32" src={logo} alt="logo" />
+            <Link to="/">
+              <img className="w-32 cursor-pointer" src={logo} alt="logo" />
+            </Link>
             <div className="w-full border border-zinc-300 p-5 rounded-sm">
               <h2 className="font-titleFont text-3xl  mb-4">Create account</h2>
               <div className="flex flex-col gap-3">

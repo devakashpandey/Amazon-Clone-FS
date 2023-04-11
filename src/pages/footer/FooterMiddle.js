@@ -7,12 +7,14 @@ const FooterMiddle = () => {
   return (
     <>
       <div className="w-full bg-amazon_light text-white">
-        <div
-          className="w-full bg-[#37475a] py-3 text-center text-sm 
-        hover:bg-[#37476b] cursor-pointer"
-        >
-          Back to top
-        </div>
+        <a href="#top">
+          <div
+            className="w-full bg-[#37475a] py-3 text-center text-sm 
+        hover:bg-[#37476b] cursor-pointer duration-200"
+          >
+            Back to top
+          </div>
+        </a>
 
         <div className="w-full py-12">
           <div className="max-w-5xl mx-auto text-gray-300">

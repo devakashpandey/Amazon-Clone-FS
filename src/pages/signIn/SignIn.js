@@ -3,7 +3,6 @@ import logo from "../../assets/amazondark.png";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { RotatingLines } from "react-loader-spinner";
-import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../../redux/AmazonSlice";
 
@@ -121,7 +120,9 @@ const SignIn = () => {
           ) : (
             <>
               <form className="w-[370px] mx-auto flex flex-col items-center">
-                <img className="w-32" src={logo} alt="logo" />
+                <Link to="/">
+                  <img className="w-32 cursor-pointer" src={logo} alt="logo" />
+                </Link>
                 <div className="w-full border border-zinc-300 p-5 rounded-sm">
                   <h2 className="font-titleFont text-3xl  mb-4">Sign in</h2>
                   <div className="flex flex-col gap-3  font-titleFont tracking-wide">
