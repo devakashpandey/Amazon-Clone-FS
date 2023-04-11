@@ -4,8 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { RotatingLines } from "react-loader-spinner";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../../redux/AmazonSlice";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
   const fullYear = new Date();
   const currYear = fullYear.getFullYear();
 
@@ -66,7 +69,14 @@ const SignIn = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userData) => {
           const user = userData.user;
-          console.log(user);
+          dispatch(
+            setUserInfo({
+              id: user.uid,
+              userName: user.displayName,
+              email: user.email,
+              image: user.photoURL,
+            })
+          );
           setLoading(false);
           setSuccessMsg("Logged in Successfully!");
           setTimeout(() => {

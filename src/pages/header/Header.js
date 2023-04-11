@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [show, setShow] = useState(false);
   const products = useSelector((state) => state.amazon.products);
+  const userInfo = useSelector((state) => state.amazon.userInfo);
 
   return (
     <>
