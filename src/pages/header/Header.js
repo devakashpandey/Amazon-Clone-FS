@@ -36,12 +36,12 @@ const Header = () => {
       <div className="w-full sticky top-0 z-50">
         <div
           className="w-full bg-amazon_blue text-white 
-        px-3 py-1 flex items-center gap-4 "
+        px-3 py-1 flex items-center gap-8 "
         >
           {/* ========== Image Start here ========== */}
           <Link to="/">
             <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
-              <img className="w-24 mt-2" src={logo} alt="logo" />
+              <img className="w-20 -ml-3 md:w-24  mt-2" src={logo} alt="logo" />
             </div>
           </Link>
           {/* ========== Image End here ========== */}

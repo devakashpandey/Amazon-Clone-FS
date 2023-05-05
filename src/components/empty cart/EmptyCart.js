@@ -15,13 +15,15 @@ const EmptyCart = () => {
       >
         <div>
           <img
-            className="w-80 rounded-lg mx-auto"
+            className="rounded-lg mx-auto"
             src={emptyCartImg}
             alt="empty cart"
           />
         </div>
-        <div className="w-96 p-4 bg-white flex flex-col items-center rounded-md shadow-lg">
-          <h1 className="text-xl font-semibold">Your Cart feels lonely.</h1>
+        <div className=" md:w-96 p-4 bg-white flex flex-col items-center rounded-md shadow-lg">
+          <h1 className="text-lg md:text-xl font-semibold">
+            Your Cart feels lonely.
+          </h1>
           <p className="text-sm text-center mt-2">
             Your Shopping cart lives to serve. Give it purpose - fill it with
             cloths, electronics, jewelery, books etc & make it happy.

@@ -1,0 +1,17 @@
+@media (max-width: 1300px) {
+  .left-side {
+    height: 90%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .left-side {
+    height: 100%;
+  }
+}
+
+@media (max-width: 6500px) {
+  .left-side {
+    width: 100% !important;
+  }
+}

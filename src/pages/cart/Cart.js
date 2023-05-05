@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EmiOption from "../../components/emi accordian/EmiOption";
@@ -27,8 +28,8 @@ const Cart = () => {
     <>
       <div className="w-full bg-gray-100 p-4 mt-4">
         {products.length > 0 ? (
-          <div className="w-full mx-auto h-auto grid grid-cols-4 gap-6">
-            <div className="w-full h-full bg-white col-span-3">
+          <div className="w-full mx-auto h-auto grid mdl:grid-cols-4 gap-6">
+            <div className="w-full h-full bg-white mdl:col-span-3 ">
               <div className="font-titleFont flex items-center justify-between border-b-[1px] py-5 px-5">
                 <h2 className="text-3xl font-medium">Shopping Cart</h2>
                 <h4 className="text-gray-500 font-medium text-lg">Price</h4>
@@ -40,20 +41,20 @@ const Cart = () => {
                     className="w-full border-b-2 p-8 flex items-center gap-6"
                     key={item.id}
                   >
-                    <div className="w-full flex items-center justify-between gap-4">
-                      <div className="w-1/5">
+                    <div className="w-full flex items-center justify-between gap-4 ">
+                      <div className=" w-full mdl:w-1/5">
                         <img
-                          className=" w-full h-44 object-contain "
+                          className="w-full h-52 mdl:h-44 object-contain "
                           src={item.image}
                           alt="productImg"
                         />
                       </div>
                       <div className="w-3/5">
-                        <h2 className="font-medium text-[1.5rem]">
+                        <h2 className="font-medium text-lg mdl:text-[1.5rem]">
                           {item.title}
                         </h2>
-                        <p className="text-md pr-30 mb-1 mt-1 ">
-                          {item.description}
+                        <p className="mdl:text-md text-sm  pr-30 mb-1 mt-1 hidden md:inline-flex">
+                          {item.description}...
                         </p>
                         <p>
                           Price{" "}
@@ -96,7 +97,7 @@ const Cart = () => {
                         </button>{" "}
                       </div>
                       <div>
-                        <p className="text-2xl font-semibold">
+                        <p className=" text-xl mdl:text-2xl font-semibold">
                           ${item.price * item.quantity}
                         </p>
                       </div>
@@ -106,35 +107,40 @@ const Cart = () => {
               </div>
               {/* Products item End here */}
             </div>
-            <div className="w-full h-72 bg-white items-center p-5  ">
-              <div>
-                <p className="flex gap-2 items-start text-sm mt-2 mb-2">
-                  <span className="bg-white text-green-600">
-                    <CheckCircleIcon />
-                  </span>
-                  Part of your order qualifies for FREE Delivery. Select this
-                  option at checkout. Details
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-lg py-2 items-center justify-between font-titleFont tracking-wide">
-                  Subtotal ({products.length > 0 ? products.length : 0} items):{" "}
-                  <span className="text-2xl font-semibold">${totalPrice}</span>
-                </p>
-                <div className="mb-1">
-                  <input type="checkbox" />
-                  &nbsp; This order contains a gift
+            <div className="w-full">
+              <div className="w-full left-side mdl:h-[19rem] bg-white items-center p-5  ">
+                <div>
+                  <p className=" gap-2 items-start text-sm mt-2 mb-2 hidden mdl:inline-flex">
+                    <span className="bg-white text-green-600">
+                      <CheckCircleIcon />
+                    </span>
+                    Part of your order qualifies for FREE Delivery. Select this
+                    option at checkout. Details
+                  </p>
                 </div>
-              </div>
-              <button
-                className="w-full font-titleFont bg-yellow-300 border
+                <div>
+                  <p className="font-medium text-sm mdl:text-lg py-2 items-center justify-between font-titleFont tracking-wide">
+                    Subtotal ({products.length > 0 ? products.length : 0}{" "}
+                    items):{" "}
+                    <span className=" text-xl mdl:text-2xl font-semibold">
+                      ${totalPrice}
+                    </span>
+                  </p>
+                  <div className="mb-1 text-sm mdl:text-lg">
+                    <input type="checkbox" />
+                    &nbsp; Senad as gift. Include custom message
+                  </div>
+                </div>
+                <button
+                  className="w-full font-titleFont bg-yellow-300 border
                     border-yellow-400 hover:bg-yellow-400
                     duration-200 py-1.5 text-sm rounded-md mt-3"
-              >
-                Proceed to Buy
-              </button>
-              <div className="py-4">
-                <EmiOption />
+                >
+                  Proceed to Buy
+                </button>
+                <div className="py-4">
+                  <EmiOption />
+                </div>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ const FooterBottom = () => {
     <>
       <div className="w-full bg-footerBottom py-8">
         <div className="max-w-5xl mx-auto">
-          <div className="w-full grid-cols-3 px-5 lgl:px-0 md:grid-cols-5  grid lgl:grid-cols-7 text-gray-400">
+          <div className="w-full grid-cols-3 px-5 last: lgl:px-0 md:grid-cols-5 place-items-center grid lgl:grid-cols-7 text-gray-400">
             {footerBottomList.map((item) => {
               return (
                 <div key={item.id} className="group">
@@ -26,7 +26,7 @@ const FooterBottom = () => {
               );
             })}
           </div>
-          <p className="text-gray-300 text-[13px] mt-4  w-[40%] m-auto text-center">
+          <p className="text-gray-300 text-[13px] mt-10 w-[90%] m-auto text-center">
             <span className="hover:underline cursor-pointer">
               Conditions of Use
             </span>{" "}
