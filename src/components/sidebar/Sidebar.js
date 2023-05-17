@@ -57,16 +57,16 @@ export default function Sidebar() {
       <div className="relative">
         <div
           className="w-72 md:w-96 h-14 bg-amazon_light flex items-center 
-        justify-left fixed z-50"
+        justify-left fixed z-50 "
         >
           <h1
             className="flex items-center 
-        justify-left ml-10 gap-2  text-white font-bold text-[1.2rem]"
+        justify-left ml-5 mdl:ml-10 gap-2  text-white font-bold text-[1.1rem] mdl:text-[1.2rem]"
           >
             {userInfo ? (
               <>
                 <img
-                  className="w-9 h-9 rounded-full"
+                  className="w-8 h-8 mdl:w-9 mdl:h-9 rounded-full"
                   src={userInfo.image}
                   alt="userLogo"
                 />
@@ -77,7 +77,7 @@ export default function Sidebar() {
             Hello,
             {userInfo ? (
               <>
-                <span className="capitalize text-[20px]">
+                <span className="capitalize text-[18px]">
                   {userInfo.userName}
                 </span>
               </>

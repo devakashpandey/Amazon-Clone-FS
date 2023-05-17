@@ -138,6 +138,7 @@ const Cart = () => {
                 >
                   Proceed to Buy
                 </button>
+                
                 <div className="py-4">
                   <EmiOption />
                 </div>

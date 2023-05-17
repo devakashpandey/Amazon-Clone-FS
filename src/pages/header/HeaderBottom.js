@@ -5,7 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 const HeaderBottom = () => {
   return (
     <>
-      <div className="w-full px-3 h-[36px] bg-amazon_light text-white flex items-center justify-between ">
+      <div className="w-full -my-1 px-3 h-[36px] bg-amazon_light text-white flex items-center justify-between ">
         {/* ========== Header Bottom Items Start here ========== */}
         <div className="left">
           <ul className="px-1 py-1 flex items-center gap-3 text-sm  ">

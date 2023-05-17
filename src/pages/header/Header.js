@@ -41,7 +41,19 @@ const Header = () => {
           {/* ========== Image Start here ========== */}
           <Link to="/">
             <div className="px-1 ml-4 mdl:ml-0 py-1 h-[80%] headerHover flex items-center justify-center">
-              <img className="w-20 -ml-3 md:w-24  mt-2" src={logo} alt="logo" />
+              {userInfo ? (
+                <img
+                  className="w-full -ml-3 md:-ml-0 md:w-24 mt-2"
+                  src={logo}
+                  alt="logo"
+                />
+              ) : (
+                <img
+                  className="w-20 -ml-3 md:-ml-0 md:w-24 mt-2"
+                  src={logo}
+                  alt="logo"
+                />
+              )}
             </div>
           </Link>
           {/* ========== Image End here ========== */}
@@ -86,10 +98,10 @@ const Header = () => {
           {/* ========== Signin Start here ========== */}
           <Link to="/signin">
             <div className="px-2 py-2 headerHover flex flex-col items-start justify-center">
-              <p className="text-sm">
-                Hello,{" "}
+              <p className="text-xs">
+                Hello,
                 {userInfo ? (
-                  <span className="capitalize">{userInfo.userName}</span>
+                  <span className="capitalize"> {userInfo.userName}</span>
                 ) : (
                   <span className="text-sm mdl:text-xs ml-2 mdl:ml-0 font-medium text-white mdl:text-lightText">
                     sign in
