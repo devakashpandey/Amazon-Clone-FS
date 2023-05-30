@@ -36,7 +36,7 @@ export const amazonSlice = createSlice({
     // delete item
     deleteItem: (state, action) => {
       state.products = state.products.filter(
-        (item) => item.id !== action.payload
+        (item) => item.id !== action.payload // clicked id jis product id se match nahi kia us usko reder kro aur jise match hua usko delete kr do
       );
     },
 

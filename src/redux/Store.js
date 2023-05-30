@@ -9,7 +9,7 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist"; // 1st impoer this
+} from "redux-persist"; // 1st impoerT this
 import storage from "redux-persist/lib/storage"; // 2nd import the storage
 import amazonReducer from "../redux/AmazonSlice";
 

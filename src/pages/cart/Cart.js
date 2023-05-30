@@ -8,7 +8,6 @@ import {
   deleteItem,
   incrementQty,
 } from "../../redux/AmazonSlice";
-
 import EmptyCart from "../../components/empty cart/EmptyCart";
 
 const Cart = () => {
@@ -110,7 +109,7 @@ const Cart = () => {
             <div className="w-full">
               <div className="w-full left-side mdl:h-[19rem] bg-white items-center p-5  ">
                 <div>
-                  <p className=" gap-2 items-start text-sm mt-2 mb-2 hidden mdl:inline-flex">
+                  <p className=" gap-2 items-start text-sm  mt-2 mb-2 hidden mdl:inline-flex">
                     <span className="bg-white text-green-600">
                       <CheckCircleIcon />
                     </span>
@@ -128,7 +127,7 @@ const Cart = () => {
                   </p>
                   <div className="mb-1 text-sm mdl:text-lg">
                     <input type="checkbox" />
-                    &nbsp; Senad as gift. Include custom message
+                    &nbsp; Send as gift. Include custom message
                   </div>
                 </div>
                 <button
@@ -138,7 +137,7 @@ const Cart = () => {
                 >
                   Proceed to Buy
                 </button>
-                
+
                 <div className="py-4">
                   <EmiOption />
                 </div>
